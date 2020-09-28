@@ -1,10 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"github.com/miekg/dns"
 	"log"
-	"net"
 )
 
 var server_udp *dns.Server
@@ -24,11 +22,8 @@ func main() {
 
 		c := new(dns.Client)
 		c.Net = "tcp-tls"
-		c.Dialer = &net.Dialer{
-			Timeout: 2000,
-		}
 
-		a, rtt, err := c.Exchange(msg, fmt.Sprintf("%s:%s", "1.1.1.1", "853"))
+		a, rtt, err := c.Exchange(msg, "1.1.1.1:853")
 		if err != nil {
 			log.Printf("failed to communicate with upstream: %s", err)
 			return
