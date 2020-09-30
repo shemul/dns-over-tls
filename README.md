@@ -26,7 +26,7 @@ Also a Docker image is available on [DockerHub](https://hub.docker.com/repositor
 
 **TCP**
 
-    docker run -it -p 53:53/UDP shemul/dns-over-tls:latest /bin/app tcp
+    docker run -it -p 53:53 shemul/dns-over-tls:latest /bin/app tcp
 
 to test `dig +short +tcp google.com @localhost`
 
